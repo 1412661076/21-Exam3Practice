@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in SEQUENCES-OF-SUBSEQUENCES problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -73,6 +73,14 @@ def run_test_integers():
 
 
 def integers(sequence_of_sequences):
+    ret_list = []
+    for k in range(len(sequence_of_sequences)):
+        sub = sequence_of_sequences[k]
+        for i in range(len(sub)):
+            if type(sub[i]) is int:
+                ret_list = ret_list + [sub[i]]
+    return ret_list
+
     """
     Returns a new list that contains all the integers
     in the subsequences of the given sequence, in the order that they
@@ -95,7 +103,7 @@ def integers(sequence_of_sequences):
       :rtype: list of int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -161,6 +169,7 @@ def run_test_big_letters():
 
 
 def big_letters(sequence_of_sequences):
+
     """
     Returns a new STRING that contains all the upper-case letters
     in the subsequences of the given sequence that are strings,
@@ -188,8 +197,16 @@ def big_letters(sequence_of_sequences):
 
     Precondition:  the given argument is a sequence of sequences.
     """
+    ret_list = ''
+    for k in range(len(sequence_of_sequences)):
+        sub = sequence_of_sequences[k]
+        if type(sub) is str:
+            for i in range(len(sub)):
+                if sub[i].isupper():
+                    ret_list = ret_list + sub[i]
+    return ret_list
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################

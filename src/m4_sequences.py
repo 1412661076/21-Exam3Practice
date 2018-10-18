@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -109,6 +109,14 @@ def run_test_practice_problem4a():
 
 
 def practice_problem4a(sequence):
+    ret_list = []
+    for k in range(len(sequence)-1):
+        num = sequence[k]
+        if sequence[k+1] == num:
+                ret_list = ret_list + [k]
+    return ret_list
+
+
     """
     What comes in: A non-empty sequence.
     What goes out: Returns a list of integers,
@@ -134,7 +142,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -180,6 +188,11 @@ def run_test_practice_problem4b():
 
 
 def practice_problem4b(sequence):
+    num = sequence[0]
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > num:
+            num = sequence[k]
+    return num
     """
     What comes in:
       A sequence of numbers, where the length of the sequence >= 2.
@@ -197,7 +210,7 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -265,6 +278,7 @@ def run_test_practice_problem4c():
 
 
 def practice_problem4c(points):
+
     """
     What comes in:  A tuple of rg.Points, each of whose coordinates
       is an integer.
@@ -294,8 +308,16 @@ def practice_problem4c(points):
       :type points: tuple of rg.Point
       :rtype: rg.Point | string
     """
+    for k in range(len(points)):
+        p = points[k]
+        if is_prime(p.x) and is_prime(p.y):
+            temp = p.x
+            p.x = p.y
+            p.y = temp
+            return p
+    return 'Not found'
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -342,6 +364,7 @@ def run_test_practice_problem4d():
 
 
 def practice_problem4d(sequence):
+
     """
     What comes in: A non-empty sequence of integers.
     What goes out: An integer that is the sum of all the items
@@ -390,8 +413,15 @@ def practice_problem4d(sequence):
       :type sequence: (list | tuple) of int
       :rtype: int
     """
+    sum = 0
+    for k in range(len(sequence)-1):
+        if is_prime(sequence[k]) \
+                and is_prime(sequence[k+1]) \
+                and sequence[k] != sequence[k+1]:
+            sum = sum + sequence[k]
+    return sum
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)

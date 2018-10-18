@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rui Fang.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -137,6 +137,7 @@ def run_test_practice_problem3():
 
 
 def practice_problem3(start, n, threshold):
+
     """
     What comes in:
       -- An integer:  start
@@ -207,8 +208,14 @@ def practice_problem3(start, n, threshold):
       :type n:     int
       :type threshold: float
     """
+    ret_list = []
+    while len(ret_list) < n:
+        if math.sin(start)+math.cos(start)>threshold:
+            ret_list = ret_list + [start]
+        start = start + 1
+    return ret_list
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
